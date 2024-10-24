@@ -1,0 +1,2 @@
+# neredekalcasestudy
+neredekalcom
