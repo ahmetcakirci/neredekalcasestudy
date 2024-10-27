@@ -4,9 +4,9 @@ public class Entity
 {
     public Entity()
     {
-        Id = Guid.NewGuid().ToString();
+        Id = Guid.NewGuid();
     }
-    public string Id { get; set; }
+    public Guid Id { get; set; }
     public DateTime CreatedDate { get; set; }
     public DateTime? UpdatedDate { get; set;}
 }

@@ -12,7 +12,6 @@
       <Folder Include="Features\ContactInfo\Commands\Delete\" />
       <Folder Include="Features\ContactInfo\Commands\Update\" />
       <Folder Include="Features\ContactInfo\Queries\GetById\" />
-      <Folder Include="Features\Hotel\Commands\Delete\" />
       <Folder Include="Features\Hotel\Commands\Update\" />
       <Folder Include="Features\Hotel\Queries\" />
     </ItemGroup>
