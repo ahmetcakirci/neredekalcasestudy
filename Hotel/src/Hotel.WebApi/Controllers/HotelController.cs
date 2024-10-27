@@ -1,6 +1,7 @@
 using Application.Features.Hotel.Commands.Create;
 using Application.Features.Hotel.Commands.Delete;
 using Application.Features.Hotel.Commands.Update;
+using Application.Features.Hotel.Queries.GetById;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using NerdekalComResult;
@@ -33,5 +34,13 @@ public class HotelController:BaseController
     {
         DeleteHotelCommandResponse response = await Mediator.Send(new DeleteHotelCommand(id));
         return response.Delete ? NoContent() : NotFound();
+    }
+    
+    [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<GetByIdQueryResponse>))]
+    public async Task<IActionResult> GetById(Guid id)
+    {
+        var response = await Mediator.Send(new GetByIdQuery { Id = id });
+        return Ok(Result<GetByIdQueryResponse>.Succeed(response));
     }
 }
