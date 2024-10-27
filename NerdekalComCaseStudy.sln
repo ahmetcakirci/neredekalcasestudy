@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hotel", "Hotel", "{EE691FC1-3889-4C72-B587-C11B27F2CCF6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Raport", "Raport", "{66188A8A-B8BB-4FAF-8A08-C77CE53EA421}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{66188A8A-B8BB-4FAF-8A08-C77CE53EA421}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12079DEF-9FA8-46F0-8C77-A3583E8EB7D2}"
 EndProject
@@ -14,15 +14,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Domain", "Hotel\src\H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Infrastructure", "Hotel\src\Hotel.Infrastructure\Hotel.Infrastructure.csproj", "{D6B92750-01C3-43FE-A32F-A862F5DDF88C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.Application", "Raport\src\Raport.Application\Raport.Application.csproj", "{A88F1D87-01D9-406D-842C-794926D2392B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Application", "Raport\src\Report.Application\Report.Application.csproj", "{A88F1D87-01D9-406D-842C-794926D2392B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.Domain", "Raport\src\Raport.Domain\Raport.Domain.csproj", "{D667288B-B225-4504-BF0C-3762EBDCA430}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Domain", "Raport\src\Report.Domain\Report.Domain.csproj", "{D667288B-B225-4504-BF0C-3762EBDCA430}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.Infrastructure", "Raport\src\Raport.Infrastructure\Raport.Infrastructure.csproj", "{D344CA17-CD84-47B1-9602-80B1D4045226}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Infrastructure", "Raport\src\Report.Infrastructure\Report.Infrastructure.csproj", "{D344CA17-CD84-47B1-9602-80B1D4045226}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.WebApi", "Hotel\src\Hotel.WebApi\Hotel.WebApi.csproj", "{D719DDA8-2C9E-440C-B72B-ADD4FFCB35E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.WebApi", "Raport\src\Raport.WebApi\Raport.WebApi.csproj", "{B9B5B23D-FA2C-4450-B583-44557D479307}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.WebApi", "Raport\src\Report.WebApi\Report.WebApi.csproj", "{B9B5B23D-FA2C-4450-B583-44557D479307}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{5651034E-5990-4D91-8891-6E92D2552492}"
 EndProject
