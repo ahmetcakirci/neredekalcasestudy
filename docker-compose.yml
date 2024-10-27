@@ -1,0 +1,31 @@
+﻿services:
+  hotel.webapi:
+    image: hotel.webapi
+    build:
+      context: .
+      dockerfile: Hotel/src/Hotel.WebApi/Dockerfile
+    networks:
+      - hotel-network
+
+  hotel.db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: nerdekalnoktacom123!.
+    ports:
+      - '3366:3306'
+    volumes:
+      - hotel-db:/var/lib/mysql
+    networks:
+      - hotel-network
+
+  raport.webapi:
+    image: raport.webapi
+    build:
+      context: .
+      dockerfile: Raport/src/Raport.WebApi/Dockerfile
+
+volumes:
+  hotel-db:
+networks:
+  hotel-network:

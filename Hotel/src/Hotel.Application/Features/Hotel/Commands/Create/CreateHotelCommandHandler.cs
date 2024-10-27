@@ -15,8 +15,8 @@ public class CreateHotelCommandHandler:IRequestHandler<CreateHotelCommand,Create
     }
     public async Task<CreateHotelCommandResponse> Handle(CreateHotelCommand request, CancellationToken cancellationToken)
     {
-       Guid Id= await _hotelService.Create(request.Adapt<HotelDto>());
-        
+        Guid Id= await _hotelService.Create(request.Adapt<HotelDto>(),cancellationToken);
+
         return new CreateHotelCommandResponse()
         {
             Id = Id

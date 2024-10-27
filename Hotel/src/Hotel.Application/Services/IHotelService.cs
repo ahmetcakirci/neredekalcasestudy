@@ -4,5 +4,5 @@ namespace Application.Services;
 
 public interface IHotelService
 {
-    Task<Guid> Create(HotelDto hotel);
+    Task<Guid> Create(HotelDto hotel, CancellationToken cancellationToken);
 }

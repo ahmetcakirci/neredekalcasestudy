@@ -1,8 +1,9 @@
+using Domain.Abstractions;
+
 namespace Domain.Entities;
 
-public class Hotel
+public class Hotel: Entity
 {
-    public Guid Id { get; set; } 
     public string AuthorizedFirstName { get; set; }
     public string AuthorizedLastName { get; set; }
     public string CompanyTitle { get; set; }
