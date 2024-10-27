@@ -23,6 +23,28 @@ public class HotelService:IHotelService
 
         await _repository.AddAsync(hotel, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        throw new NotImplementedException();
+        return hotel.Id;
+    }
+    
+    public async Task<bool> Delete(Guid id, CancellationToken cancellationToken)
+    {
+        Hotel? hotel = await _repository.GetByExpressionAsync(x => x.Id == id);
+        if (hotel is null)
+            return false;
+        
+        _repository.Delete(hotel);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+    
+    public async Task<bool> Update(HotelDto request, CancellationToken cancellationToken)
+    {
+        Hotel? hotel = await _repository.GetByExpressionAsync(x => x.Id == request.Id);
+        if (hotel is null)
+            return false;
+        
+        _repository.Update(hotel);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
     }
 }
