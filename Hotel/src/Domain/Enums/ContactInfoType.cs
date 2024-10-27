@@ -2,7 +2,7 @@ namespace Domain.Enums;
 
 public enum ContactInfoType
 {
-    Phone,
-    Email,
-    Contact
+    PhoneNumber,
+    EmailAddress,
+    Location
 }
