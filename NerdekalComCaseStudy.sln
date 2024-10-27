@@ -8,21 +8,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12079DEF-9FA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CAD225C4-0A46-4AE7-B97A-859FF2B0DD89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Hotel\src\Application\Application.csproj", "{3E2D54CA-52BE-4FC1-BC21-D1FDA2226E17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Application", "Hotel\src\Hotel.Application\Hotel.Application.csproj", "{3E2D54CA-52BE-4FC1-BC21-D1FDA2226E17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Hotel\src\Domain\Domain.csproj", "{87F8D5B7-47A9-45A5-9BB5-65F44613DCF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Domain", "Hotel\src\Hotel.Domain\Hotel.Domain.csproj", "{87F8D5B7-47A9-45A5-9BB5-65F44613DCF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Hotel\src\Infrastructure\Infrastructure.csproj", "{D6B92750-01C3-43FE-A32F-A862F5DDF88C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Infrastructure", "Hotel\src\Hotel.Infrastructure\Hotel.Infrastructure.csproj", "{D6B92750-01C3-43FE-A32F-A862F5DDF88C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Raport\src\Application\Application.csproj", "{A88F1D87-01D9-406D-842C-794926D2392B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.Application", "Raport\src\Raport.Application\Raport.Application.csproj", "{A88F1D87-01D9-406D-842C-794926D2392B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Raport\src\Domain\Domain.csproj", "{D667288B-B225-4504-BF0C-3762EBDCA430}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.Domain", "Raport\src\Raport.Domain\Raport.Domain.csproj", "{D667288B-B225-4504-BF0C-3762EBDCA430}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Raport\src\Infrastructure\Infrastructure.csproj", "{D344CA17-CD84-47B1-9602-80B1D4045226}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.Infrastructure", "Raport\src\Raport.Infrastructure\Raport.Infrastructure.csproj", "{D344CA17-CD84-47B1-9602-80B1D4045226}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "Hotel\src\WebApi\WebApi.csproj", "{D719DDA8-2C9E-440C-B72B-ADD4FFCB35E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.WebApi", "Hotel\src\Hotel.WebApi\Hotel.WebApi.csproj", "{D719DDA8-2C9E-440C-B72B-ADD4FFCB35E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "Raport\src\WebApi\WebApi.csproj", "{B9B5B23D-FA2C-4450-B583-44557D479307}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raport.WebApi", "Raport\src\Raport.WebApi\Raport.WebApi.csproj", "{B9B5B23D-FA2C-4450-B583-44557D479307}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

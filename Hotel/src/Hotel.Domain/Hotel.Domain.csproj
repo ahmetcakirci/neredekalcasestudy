@@ -4,6 +4,11 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>Domain</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Raport\src\Raport.Application\Raport.Application.csproj" />
+    </ItemGroup>
 
 </Project>
