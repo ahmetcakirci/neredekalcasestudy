@@ -16,7 +16,7 @@ public class GetByIdQueryHandler : IRequestHandler<GetByIdQuery, GetByIdQueryRes
 
     public async Task<GetByIdQueryResponse> Handle(GetByIdQuery request, CancellationToken cancellationToken)
     {
-        HotelDto hotelDto = await _hotelService.GetById(request.Id, cancellationToken);
+        HotelDto hotelDto = await _hotelService.GetById(request.Id,cancellationToken);
         return hotelDto.Adapt<GetByIdQueryResponse>();
     }
 }

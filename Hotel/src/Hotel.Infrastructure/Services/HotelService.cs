@@ -50,11 +50,17 @@ public class HotelService:IHotelService
     
     public async Task<HotelDto> GetById(Guid id, CancellationToken cancellationToken)
     {
-        Hotel? hotel = await _repository.GetByExpressionAsync(x => x.Id == id);
+        Hotel? hotel = await _repository.GetByExpressionAsync(x => x.Id == id,cancellationToken);
         if (hotel is not null)
         {
             return hotel.Adapt<HotelDto>();
         }
         return new HotelDto();
+    }
+    
+    public Task<IQueryable<Hotel>> GetAll()
+    {
+        var hotels =  _repository.GetAllWithTracking();
+        return Task.FromResult(hotels);
     }
 }

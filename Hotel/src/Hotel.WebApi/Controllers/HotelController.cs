@@ -43,4 +43,12 @@ public class HotelController:BaseController
         var response = await Mediator.Send(new GetByIdQuery { Id = id });
         return Ok(Result<GetByIdQueryResponse>.Succeed(response));
     }
+    
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<GetByIdQueryResponse>))]
+    public async Task<IActionResult> GetAll(Guid id)
+    {
+        var response = await Mediator.Send(new GetByIdQuery { Id = id });
+        return Ok(Result<GetByIdQueryResponse>.Succeed(response));
+    }
 }
