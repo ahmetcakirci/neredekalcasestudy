@@ -36,4 +36,15 @@ public class HotelService:IHotelService
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
     }
+    
+    public async Task<bool> Update(HotelDto request, CancellationToken cancellationToken)
+    {
+        Hotel? hotel = await _repository.GetByExpressionAsync(x => x.Id == request.Id);
+        if (hotel is null)
+            return false;
+        
+        _repository.Update(hotel);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return true;
+    }
 }
