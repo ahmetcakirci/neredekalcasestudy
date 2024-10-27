@@ -2,7 +2,7 @@ using FluentValidation;
 
 namespace WebApi.Configuration;
 
-public class ApplicationServiceInstaller
+public class ApplicationServiceInstaller: IServiceInstaller
 {
     public void Install(IServiceCollection services, IConfiguration configuration, IHostBuilder host)
     {
