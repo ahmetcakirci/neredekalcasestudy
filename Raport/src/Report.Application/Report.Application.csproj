@@ -4,7 +4,12 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Application</RootNamespace>
+        <RootNamespace>Report.Application</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Features\Report\Commands\" />
+      <Folder Include="Features\Report\Queries\" />
+    </ItemGroup>
 
 </Project>
