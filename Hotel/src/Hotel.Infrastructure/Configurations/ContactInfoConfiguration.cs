@@ -8,6 +8,7 @@ public class ContactInfoConfiguration : IEntityTypeConfiguration<ContactInfo>
 {
     public void Configure(EntityTypeBuilder<ContactInfo> builder)
     {
+        builder.ToTable("ContactInfos");
         builder.HasKey(ci => ci.Id);
         
         builder.Property(ci => ci.InfoContent)

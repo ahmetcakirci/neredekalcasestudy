@@ -9,7 +9,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Library\NerdekalComRepository\NerdekalComRepository.csproj" />
-      <ProjectReference Include="..\..\..\Raport\src\Report.Application\Report.Application.csproj" />
     </ItemGroup>
 
 </Project>
