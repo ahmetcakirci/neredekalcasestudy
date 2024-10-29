@@ -1,3 +1,5 @@
+using Refit;
+using Report.Infrastructure.Clients;
 using Report.WorkerService;
 using Report.WorkerService.Configuration;
 
@@ -13,6 +15,10 @@ builder.Services
     .InstallServices(
         builder.Configuration,
         typeof(IServiceInstaller).Assembly);
+
+builder.Services
+    .AddRefitClient<IHotelReport>()
+    .ConfigureHttpClient(client => client.BaseAddress = new Uri(builder.Configuration["HotelService:URL"]));
 
 var host = builder.Build();
 host.Run();
