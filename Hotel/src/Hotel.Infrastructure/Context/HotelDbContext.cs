@@ -1,8 +1,5 @@
 using Domain.Abstractions;
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using NerdekalComRepository;
 
 namespace Infrastructure.Context;
 
