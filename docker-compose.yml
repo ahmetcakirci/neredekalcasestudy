@@ -11,7 +11,7 @@
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: nerdekalnoktacom123!.
+      MYSQL_ROOT_PASSWORD: nerdekalnoktacommysqlpass123!.
     ports:
       - '3366:3306'
     volumes:
@@ -30,8 +30,8 @@
     restart: always
     environment:
       POSTGRES_USER: neredekalcomuser
-      POSTGRES_PASSWORD: nerdekalnoktacom123!.
-      POSTGRES_DB: nerdekaldb
+      POSTGRES_PASSWORD: nerdekalnoktacompostgrespass123!.
+      POSTGRES_DB: nerdekalreportdb
     volumes:
       - report-db:/var/lib/postgresql/data
     healthcheck:
@@ -44,9 +44,23 @@
     networks:
       - report-network
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "nerdekaluserrabbitmq"
+      RABBITMQ_DEFAULT_PASS: "nerdekalpassrabbitmq123!."
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+
 volumes:
   hotel-db:
   report-db:
+  rabbitmq_data:
 networks:
   hotel-network:
   report-network:
