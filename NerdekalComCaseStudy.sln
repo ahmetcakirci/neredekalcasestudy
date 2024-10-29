@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdekalComResult", "Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeredekalComPagination", "Library\NeredekalComPagination\NeredekalComPagination.csproj", "{1588F2AB-CCD3-4FE1-9361-761019B04342}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.WorkerService", "Raport\src\Report.WorkerService\Report.WorkerService.csproj", "{A47015DD-885C-40E2-80EF-4F6D0A046A72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{1588F2AB-CCD3-4FE1-9361-761019B04342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1588F2AB-CCD3-4FE1-9361-761019B04342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1588F2AB-CCD3-4FE1-9361-761019B04342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A47015DD-885C-40E2-80EF-4F6D0A046A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A47015DD-885C-40E2-80EF-4F6D0A046A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A47015DD-885C-40E2-80EF-4F6D0A046A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A47015DD-885C-40E2-80EF-4F6D0A046A72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{12079DEF-9FA8-46F0-8C77-A3583E8EB7D2} = {EE691FC1-3889-4C72-B587-C11B27F2CCF6}
@@ -102,5 +108,6 @@ Global
 		{D7C7540A-C488-4909-B56E-790F23128CE7} = {5651034E-5990-4D91-8891-6E92D2552492}
 		{034F1312-0343-4E47-9CE9-8B18958C0A4E} = {5651034E-5990-4D91-8891-6E92D2552492}
 		{1588F2AB-CCD3-4FE1-9361-761019B04342} = {5651034E-5990-4D91-8891-6E92D2552492}
+		{A47015DD-885C-40E2-80EF-4F6D0A046A72} = {CAD225C4-0A46-4AE7-B97A-859FF2B0DD89}
 	EndGlobalSection
 EndGlobal
