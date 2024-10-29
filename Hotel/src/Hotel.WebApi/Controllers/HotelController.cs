@@ -1,10 +1,13 @@
 using Application.Features.Hotel.Commands.Create;
 using Application.Features.Hotel.Commands.Delete;
 using Application.Features.Hotel.Commands.Update;
+using Application.Features.Hotel.Queries.GetAll;
 using Application.Features.Hotel.Queries.GetById;
+using Application.Features.Hotel.Queries.GetLocationReport;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using NerdekalComResult;
+using NeredekalComPagination;
 
 namespace Hotel.WebApi.Controllers;
 
@@ -45,10 +48,30 @@ public class HotelController:BaseController
     }
     
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<GetByIdQueryResponse>))]
-    public async Task<IActionResult> GetAll(Guid id)
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<PaginationResult<GetAllQueryResponse>>))]
+    public async Task<IActionResult> GetAll(int pageIndex=1,int pageSize=20)
     {
-        var response = await Mediator.Send(new GetByIdQuery { Id = id });
-        return Ok(Result<GetByIdQueryResponse>.Succeed(response));
+        var response = await Mediator.Send(
+            new GetAllQuery 
+            { 
+                PageIndex = pageIndex,
+                PageSize = pageSize
+                
+            });
+        return Ok(Result<PaginationResult<GetAllQueryResponse>>.Succeed(response));
+    }
+    
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<PaginationResult<GetLocationReportQueryResponse>>))]
+    public async Task<IActionResult> GetLocationReport(int pageIndex=1,int pageSize=20)
+    {
+        var response = await Mediator.Send(
+            new GetLocationReportQuery 
+            { 
+                PageIndex = pageIndex,
+                PageSize = pageSize
+                
+            });
+        return Ok(Result<PaginationResult<GetLocationReportQueryResponse>>.Succeed(response));
     }
 }
