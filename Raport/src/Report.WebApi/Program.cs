@@ -12,6 +12,8 @@ builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json",false,true)
     .AddEnvironmentVariables();
 
+builder.Services.AddControllers();
+
 builder.Services
     .InstallServices(
         builder.Configuration,
@@ -28,5 +30,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapControllers();
 
 app.Run();
