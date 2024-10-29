@@ -6,7 +6,7 @@ using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using NerdekalComRepository;
 
-namespace WebApi.Configuration;
+namespace Hotel.WebApi.Configuration;
 
 public sealed class InfrastructureServiceInstaller : IServiceInstaller
 {

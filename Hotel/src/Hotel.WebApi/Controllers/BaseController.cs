@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers;
+namespace Hotel.WebApi.Controllers;
 
 public class BaseController:ControllerBase
 {

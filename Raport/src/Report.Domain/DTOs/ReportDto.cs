@@ -1,9 +1,8 @@
-using Report.Domain.Abstractions;
 using Report.Domain.Enums;
 
-namespace Report.Domain.Entities;
+namespace Report.Domain.DTOs;
 
-public class Report: Entity
+public class ReportDto
 {
     public DateTime RequestedDate { get; set; }
     public ReportStatus Status { get; set; } 
