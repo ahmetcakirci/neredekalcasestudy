@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Configuration;
+namespace Hotel.WebApi.Configuration;
 
 public class ApplicationServiceInstaller: IServiceInstaller
 {

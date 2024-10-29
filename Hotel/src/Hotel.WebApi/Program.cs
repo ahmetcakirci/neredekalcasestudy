@@ -1,4 +1,4 @@
-using WebApi.Configuration;
+using Hotel.WebApi.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 

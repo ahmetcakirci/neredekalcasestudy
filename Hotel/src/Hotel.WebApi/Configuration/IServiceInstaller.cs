@@ -1,4 +1,4 @@
-namespace WebApi.Configuration;
+namespace Hotel.WebApi.Configuration;
 
 public interface IServiceInstaller
 {

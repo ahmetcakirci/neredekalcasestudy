@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using NerdekalComResult;
 
-namespace WebApi.Controllers;
+namespace Hotel.WebApi.Controllers;
 
 public class HotelController:BaseController
 {
