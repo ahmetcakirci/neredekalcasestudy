@@ -3,7 +3,9 @@ using System.Text.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Report.Domain.DTOs;
-using Report.Infrastructure.Context;
+using Report.Domain.Enums;
+using Report.Infrastructure.Clients;
+using Report.Infrastructure.Services;
 
 namespace Report.WorkerService;
 
@@ -20,7 +22,7 @@ public class ReportWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
+        var factory = new ConnectionFactory() { HostName = "localhost",Port = 5670};
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
 
@@ -34,9 +36,20 @@ public class ReportWorker : BackgroundService
             var report = JsonSerializer.Deserialize<ReportDto>(message);
             
             using var scope = _scopeFactory.CreateScope();
-            var context = scope.ServiceProvider.GetRequiredService<ReportDbContext>();
+            var reportService = scope.ServiceProvider.GetRequiredService<ReportService>();
+            var _hotelClient = scope.ServiceProvider.GetRequiredService<IHotelReport>();
 
-           
+            var client=await _hotelClient.GetHotelLocation(report?.LocationInfo);
+            var updateReport = new ReportDto()
+            {
+                Id = report.Id,
+                RequestedDate = DateTime.UtcNow,
+                LocationInfo = report?.LocationInfo,
+                Status=ReportStatus.Completed,
+                HotelCount=client.Content?.HotelCount,
+                PhoneNumberCount = client.Content?.PhoneNumberCount
+            };
+            bool isUpdate=await reportService.Update(updateReport, stoppingToken);
         };
 
         channel.BasicConsume(queue: "reportQueue", autoAck: true, consumer: consumer);

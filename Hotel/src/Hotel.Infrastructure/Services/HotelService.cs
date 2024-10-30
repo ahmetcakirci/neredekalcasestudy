@@ -1,6 +1,7 @@
 using Application.Services;
 using Domain.DTOs;
 using Domain.Entities;
+using Domain.Enums;
 using Domain.Repositories;
 using Mapster;
 using NerdekalComRepository;
@@ -42,7 +43,11 @@ public class HotelService:IHotelService
         Hotel? hotel = await _repository.GetByExpressionAsync(x => x.Id == request.Id);
         if (hotel is null)
             return false;
-        
+
+        hotel.AuthorizedFirstName = request.AuthorizedFirstName;
+        hotel.AuthorizedLastName = request.AuthorizedLastName;
+        hotel.CompanyTitle = request.CompanyTitle;
+
         _repository.Update(hotel);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return true;
@@ -62,5 +67,21 @@ public class HotelService:IHotelService
     {
         var hotels =  _repository.GetAllWithTracking();
         return Task.FromResult(hotels);
+    }
+    public Task<ReportDto> GetLocationReport(string locationInfo)
+    {
+        var reports = _repository.GetAll()
+            .Where(h => h.ContactInfos.Any(ci =>
+                ci.InfoType == ContactInfoType.Location && ci.InfoContent == locationInfo))
+            .ToList();
+
+        var report = new ReportDto()
+        {
+            LocationInfo = locationInfo,
+            HotelCount = reports.Count,
+            PhoneNumberCount = reports.Sum(h => h.ContactInfos.Count(ci => ci.InfoType == ContactInfoType.PhoneNumber))
+        };
+        
+        return Task.FromResult(report);
     }
 }

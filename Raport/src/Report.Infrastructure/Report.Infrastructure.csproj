@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Mapster" Version="7.3.0" />
+      <PackageReference Include="Mapster" Version="7.4.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Library\NerdekalComRepository\NerdekalComRepository.csproj" />
       <ProjectReference Include="..\Report.Application\Report.Application.csproj" />
       <ProjectReference Include="..\Report.Domain\Report.Domain.csproj" />
     </ItemGroup>

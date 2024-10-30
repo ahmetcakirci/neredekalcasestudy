@@ -5,7 +5,7 @@ using NeredekalComPagination;
 
 namespace Application.Features.Hotel.Queries.GetLocationReport;
 
-public class GetLocationReportQueryHandler: IRequestHandler<GetLocationReportQuery, PaginationResult<GetLocationReportQueryResponse>>
+public class GetLocationReportQueryHandler: IRequestHandler<GetLocationReportQuery, GetLocationReportQueryResponse>
 {
     private readonly IHotelService _hotelService;
 
@@ -14,11 +14,9 @@ public class GetLocationReportQueryHandler: IRequestHandler<GetLocationReportQue
         _hotelService = hotelService;
     }
 
-    public async Task<PaginationResult<GetLocationReportQueryResponse>> Handle(GetLocationReportQuery request, CancellationToken cancellationToken)
+    public async Task<GetLocationReportQueryResponse> Handle(GetLocationReportQuery request, CancellationToken cancellationToken)
     {
-        var hotels = await _hotelService.GetAll();
-        var pagination=await hotels.ToPagedListAsync(request.PageIndex,request.PageSize,cancellationToken);
-        
-        return pagination.Adapt<PaginationResult<GetLocationReportQueryResponse>>();
+        var reports = await _hotelService.GetLocationReport(request.LocationInfo);
+        return reports.Adapt<GetLocationReportQueryResponse>();
     }
 }

@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace Application.Features.Hotel.Queries.GetAll;
+namespace Report.Application.Features.Report.Queries.GetAll;
 
 public class GetAllQueryValidator:AbstractValidator<GetAllQuery>
 {

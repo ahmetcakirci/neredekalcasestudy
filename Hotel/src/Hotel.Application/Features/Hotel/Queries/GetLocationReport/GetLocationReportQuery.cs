@@ -1,10 +1,8 @@
 using MediatR;
-using NeredekalComPagination;
 
 namespace Application.Features.Hotel.Queries.GetLocationReport;
 
-public class GetLocationReportQuery:IRequest<PaginationResult<GetLocationReportQueryResponse>>
+public class GetLocationReportQuery:IRequest<GetLocationReportQueryResponse>
 {
-    public int PageIndex { get; set; }
-    public int PageSize { get; set; }
+    public string? LocationInfo { get; set; }
 }

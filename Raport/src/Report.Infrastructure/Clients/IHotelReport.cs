@@ -7,5 +7,5 @@ public interface IHotelReport
 {
     [Headers("Content-Type: application/json")]
     [Get("/api/Hotel/GetLocationReport")]
-    Task<ApiResponse<ReportDto>> GetHotelLocation();
+    Task<ApiResponse<ClientReportDto>> GetHotelLocation([AliasAs("locationInfo")] string? locationInfo);
 }

@@ -14,7 +14,9 @@ public sealed class InfrastructureServiceInstaller : IServiceInstaller
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<HotelDbContext>(options => {
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            options.UseMySql(connectionString
+                , ServerVersion.AutoDetect(connectionString)
+                , b => b.MigrationsAssembly("Hotel.WebApi"));
         });
         
         services.AddScoped<IHotelService, HotelService>();

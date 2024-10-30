@@ -24,6 +24,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Library\NerdekalComRepository\NerdekalComRepository.csproj" />
+      <ProjectReference Include="..\..\..\Library\NerdekalComResult\NerdekalComResult.csproj" />
       <ProjectReference Include="..\Report.Application\Report.Application.csproj" />
       <ProjectReference Include="..\Report.Infrastructure\Report.Infrastructure.csproj" />
     </ItemGroup>

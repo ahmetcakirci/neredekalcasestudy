@@ -10,4 +10,5 @@ public interface IHotelService
     Task<bool> Update(HotelDto hotel, CancellationToken cancellationToken);
     Task<HotelDto> GetById(Guid id, CancellationToken cancellationToken);
     Task<IQueryable<Hotel>> GetAll();
+    Task<ReportDto> GetLocationReport(string locationInfo);
 }
