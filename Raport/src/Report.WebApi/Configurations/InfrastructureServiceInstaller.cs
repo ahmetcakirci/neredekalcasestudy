@@ -15,11 +15,14 @@ public sealed class InfrastructureServiceInstaller : IServiceInstaller
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<ReportDbContext>(options =>
         {
-            options.UseNpgsql(connectionString);
+            options.UseNpgsql(connectionString
+                ,b => b.MigrationsAssembly("Report.WebApi")
+                );
         });
         
         services.AddScoped<IReportService, ReportService>();
-        
+        services.AddScoped<IMessageQueueService, RabbitMqService>();
+
         services.AddScoped<IUnitOfWork, UnitOfWork<ReportDbContext>>();
         services.AddScoped<IReportRepository, ReportRepository>();
     }

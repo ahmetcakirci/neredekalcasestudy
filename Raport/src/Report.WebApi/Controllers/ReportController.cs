@@ -8,11 +8,14 @@ namespace Report.WebApi.Controllers;
 
 public class ReportController:BaseController
 {
-    [HttpGet]
+    [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<CreateReportCommandResponse>))]
-    public async Task<IActionResult> Create()
+    public async Task<IActionResult> Create(string locationInfo)
     {
-        return Ok(Result<CreateReportCommandResponse>.Succeed(await Mediator?.Send(new CreateReportCommand())!));
+        return Ok(Result<CreateReportCommandResponse>.Succeed(await Mediator?.Send(new CreateReportCommand()
+        {
+            LocationInfo = locationInfo
+        })!));
     }
     
     [HttpGet]

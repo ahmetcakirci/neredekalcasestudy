@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Report.Infrastructure.Context;
 using Report.WebApi.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +23,11 @@ builder.Services
         typeof(IServiceInstaller).Assembly);
 
 var app = builder.Build();
-
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetService<ReportDbContext>();
+    context.Database.Migrate();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
