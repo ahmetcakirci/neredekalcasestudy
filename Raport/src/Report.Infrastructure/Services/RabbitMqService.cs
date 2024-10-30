@@ -10,7 +10,7 @@ public class RabbitMqService:IMessageQueueService
 {
     public void Publish(ReportDto report)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
+        var factory = new ConnectionFactory() { HostName = "localhost",Port = 5670 };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
 
