@@ -1,6 +1,6 @@
-namespace Application.Features.Hotel.Queries.GetLocationReport;
+namespace Domain.DTOs;
 
-public class GetLocationReportQueryResponse
+public class ReportDto
 {
     public string LocationInfo { get; set; }
     public int? HotelCount { get; set; }

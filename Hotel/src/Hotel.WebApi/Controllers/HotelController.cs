@@ -62,16 +62,14 @@ public class HotelController:BaseController
     }
     
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<PaginationResult<GetLocationReportQueryResponse>>))]
-    public async Task<IActionResult> GetLocationReport(int pageIndex=1,int pageSize=20)
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<GetLocationReportQueryResponse>))]
+    public async Task<IActionResult> GetLocationReport(string? locationInfo)
     {
         var response = await Mediator.Send(
             new GetLocationReportQuery 
             { 
-                PageIndex = pageIndex,
-                PageSize = pageSize
-                
+                LocationInfo = locationInfo
             });
-        return Ok(Result<PaginationResult<GetLocationReportQueryResponse>>.Succeed(response));
+        return Ok(Result<GetLocationReportQueryResponse>.Succeed(response));
     }
 }

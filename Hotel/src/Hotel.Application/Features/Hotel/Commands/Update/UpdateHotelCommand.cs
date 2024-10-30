@@ -7,5 +7,4 @@ public sealed record UpdateHotelCommand(
     Guid Id , 
     string AuthorizedFirstName,
     string AuthorizedLastName,
-    string CompanyTitle,
-    List<ContactInfoDto> ContactInfos) : IRequest<UpdateHotelCommandResponse>;
+    string CompanyTitle) : IRequest<UpdateHotelCommandResponse>;
