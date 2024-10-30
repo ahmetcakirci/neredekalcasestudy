@@ -18,11 +18,11 @@ public class ReportDbContext: DbContext
         {
             if(entry.State == EntityState.Added)
                 entry.Property(p=> p.CreatedDate)
-                    .CurrentValue = DateTime.Now;
+                    .CurrentValue = new DateTime(DateTime.Now.Ticks,DateTimeKind.Utc);
 
             if (entry.State == EntityState.Modified)
                 entry.Property(p => p.UpdatedDate)
-                    .CurrentValue = DateTime.Now;
+                    .CurrentValue = new DateTime(DateTime.Now.Ticks,DateTimeKind.Utc);
         }
         return base.SaveChangesAsync(cancellationToken);
     }

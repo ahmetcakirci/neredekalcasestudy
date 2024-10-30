@@ -22,7 +22,12 @@ public class ReportWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost",Port = 5672};
+        var factory = new ConnectionFactory() { 
+            HostName = "localhost",
+            UserName = "nerdekaluserrabbitmq",
+            Password = "nerdekalpassrabbitmq123!.",
+            Port = 5672
+        };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
 
@@ -43,7 +48,7 @@ public class ReportWorker : BackgroundService
             var updateReport = new ReportDto()
             {
                 Id = report.Id,
-                RequestedDate = DateTime.UtcNow,
+                RequestedDate =new DateTime(DateTime.Now.Ticks,DateTimeKind.Utc),
                 LocationInfo = report?.LocationInfo,
                 Status=ReportStatus.Completed,
                 HotelCount=client.Content?.HotelCount,

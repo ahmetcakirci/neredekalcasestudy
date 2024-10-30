@@ -19,7 +19,7 @@ public class CreateReportCommandHandler:IRequestHandler<CreateReportCommand,Crea
     {
         var report = new ReportDto()
         {
-            RequestedDate = DateTime.UtcNow,
+            RequestedDate =new DateTime(DateTime.Now.Ticks,DateTimeKind.Utc),
             Status = ReportStatus.Preparing,
             LocationInfo = request.LocationInfo
         };

@@ -10,7 +10,13 @@ public class RabbitMqService:IMessageQueueService
 {
     public void Publish(ReportDto report)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost",Port = 5672 };
+        var factory = new ConnectionFactory() { 
+            HostName = "localhost",
+            UserName = "nerdekaluserrabbitmq",
+            Password = "nerdekalpassrabbitmq123!.",
+            Port = 5672
+            
+        };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
 
