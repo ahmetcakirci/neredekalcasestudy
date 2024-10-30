@@ -22,7 +22,7 @@ public class ReportWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost",Port = 5670};
+        var factory = new ConnectionFactory() { HostName = "localhost",Port = 5672};
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
 

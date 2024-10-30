@@ -8,7 +8,7 @@ public class ReportDbContext: DbContext
     public ReportDbContext(DbContextOptions<ReportDbContext> options) : base(options) { }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AssemblyRefence).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Report.Infrastructure.AssemblyRefence).Assembly);
     }
     
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

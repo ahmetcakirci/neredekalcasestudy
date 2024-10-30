@@ -4,6 +4,10 @@
     build:
       context: .
       dockerfile: Hotel/src/Hotel.WebApi/Dockerfile
+    depends_on:
+      - hotel.db
+    ports:
+      - 8081:8080
     networks:
       - hotel-network
 
@@ -19,13 +23,33 @@
     networks:
       - hotel-network
 
-  raport.webapi:
-    image: raport.webapi
+  report.webapi:
+    image: report.webapi
     build:
       context: .
-      dockerfile: Raport/src/Raport.WebApi/Dockerfile
-      
-  raport.db:
+      dockerfile: Raport/src/Report.WebApi/Dockerfile
+    depends_on:
+      - report.db
+      - rabbitmq
+    ports:
+      - 8082:8080
+    networks:
+      - report-network
+
+  report.workerservice:
+    image: report.workerservice
+    build:
+      context: .
+      dockerfile: Raport/src/Report.WorkerService/Dockerfile
+    depends_on:
+      - report.db
+      - rabbitmq
+    ports:
+      - 8083:8080
+    networks:
+      - report-network
+
+  report.db:
     image: postgres
     restart: always
     environment:
@@ -51,8 +75,8 @@
       RABBITMQ_DEFAULT_USER: "nerdekaluserrabbitmq"
       RABBITMQ_DEFAULT_PASS: "nerdekalpassrabbitmq123!."
     ports:
-      - 5672:5672
-      - 15672:15672
+      - 5670:5672
+      - 15670:15672
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     restart: unless-stopped
@@ -64,3 +88,8 @@ volumes:
 networks:
   hotel-network:
   report-network:
+  report.workerservice:
+    image: report.workerservice
+    build:
+      context: .
+      dockerfile: Raport/src/Report.WorkerService/Dockerfile
