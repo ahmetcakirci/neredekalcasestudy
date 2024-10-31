@@ -27,7 +27,7 @@ public class ReportWorker : BackgroundService
             HostName = "localhost",
             UserName = "nerdekaluserrabbitmq",
             Password = "nerdekalpassrabbitmq123!.",
-            Port = 5670
+            Port = 5672
         };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
