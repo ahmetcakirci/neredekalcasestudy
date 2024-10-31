@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Report.Application.Services;
 using Report.Domain.DTOs;
 using Report.Domain.Enums;
 using Report.Infrastructure.Clients;
@@ -26,7 +27,7 @@ public class ReportWorker : BackgroundService
             HostName = "localhost",
             UserName = "nerdekaluserrabbitmq",
             Password = "nerdekalpassrabbitmq123!.",
-            Port = 5672
+            Port = 5670
         };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
@@ -41,7 +42,7 @@ public class ReportWorker : BackgroundService
             var report = JsonSerializer.Deserialize<ReportDto>(message);
             
             using var scope = _scopeFactory.CreateScope();
-            var reportService = scope.ServiceProvider.GetRequiredService<ReportService>();
+            var reportService = scope.ServiceProvider.GetRequiredService<IReportService>();
             var _hotelClient = scope.ServiceProvider.GetRequiredService<IHotelReport>();
 
             var client=await _hotelClient.GetHotelLocation(report?.LocationInfo);

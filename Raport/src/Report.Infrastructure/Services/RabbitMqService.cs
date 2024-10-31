@@ -14,7 +14,7 @@ public class RabbitMqService:IMessageQueueService
             HostName = "localhost",
             UserName = "nerdekaluserrabbitmq",
             Password = "nerdekalpassrabbitmq123!.",
-            Port = 5672
+            Port = 5670
             
         };
         using var connection = factory.CreateConnection();
