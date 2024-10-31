@@ -72,7 +72,17 @@ public class Repository<TEntity, TContext> : IRepository<TEntity>
     {
         return Entity.AsQueryable();
     }
+    
+    public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, Boolean>> whereExp,
+        params Expression<Func<TEntity, Object>>[] includeExps)
+    {
+        var query = Entity.AsQueryable().AsNoTracking().Where(whereExp);
+        if (includeExps is not null)
+            query = includeExps.Aggregate(query, (current, exp) => current.Include(exp));
 
+        return await query.ToListAsync();
+    }
+    
     public TEntity GetByExpression(Expression<Func<TEntity, bool>> expression)
     {
         TEntity entity = Entity.Where(expression).AsNoTracking().FirstOrDefault();

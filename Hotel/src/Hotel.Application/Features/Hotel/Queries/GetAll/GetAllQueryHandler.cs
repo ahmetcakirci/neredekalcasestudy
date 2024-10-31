@@ -18,7 +18,11 @@ public class GetAllQueryHandler: IRequestHandler<GetAllQuery, PaginationResult<G
     {
         var hotels = await _hotelService.GetAll();
         var pagination=await hotels.ToPagedListAsync(request.PageIndex,request.PageSize,cancellationToken);
+        var result = new PaginationResult<GetAllQueryResponse>(pagination.Datas.Adapt<List<GetAllQueryResponse>>(),
+            pagination.PageNumber,
+            pagination.PageSize,
+            pagination.TotalPages);
         
-        return pagination.Adapt<PaginationResult<GetAllQueryResponse>>();
+        return result;
     }
 }

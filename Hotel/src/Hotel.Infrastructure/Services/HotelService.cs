@@ -68,20 +68,18 @@ public class HotelService:IHotelService
         var hotels =  _repository.GetAllWithTracking();
         return Task.FromResult(hotels);
     }
-    public Task<ReportDto> GetLocationReport(string locationInfo)
+    public async Task<ReportDto> GetLocationReport(string locationInfo)
     {
-        var reports = _repository.GetAll()
-            .Where(h => h.ContactInfos.Any(ci =>
-                ci.InfoType == ContactInfoType.Location && ci.InfoContent == locationInfo))
-            .ToList();
+        var reports =await _repository.GetAllAsync(h => h.ContactInfos.Any(ci =>
+                ci.InfoType == ContactInfoType.Location && ci.InfoContent == locationInfo),x=>x.ContactInfos);
 
         var report = new ReportDto()
         {
             LocationInfo = locationInfo,
-            HotelCount = reports.Count,
-            PhoneNumberCount = reports.Sum(h => h.ContactInfos.Count(ci => ci.InfoType == ContactInfoType.PhoneNumber))
+            HotelCount = reports?.Count()??0,
+            PhoneNumberCount = reports?.Sum(h => h.ContactInfos.Count(ci => ci.InfoType == ContactInfoType.PhoneNumber))??0
         };
         
-        return Task.FromResult(report);
+        return report;
     }
 }
