@@ -9,7 +9,6 @@ WORKDIR /src
 COPY ["Hotel/src/Hotel.WebApi/Hotel.WebApi.csproj", "Hotel/src/Hotel.WebApi/"]
 COPY ["Hotel/src/Hotel.Application/Hotel.Application.csproj", "Hotel/src/Hotel.Application/"]
 COPY ["Hotel/src/Hotel.Domain/Hotel.Domain.csproj", "Hotel/src/Hotel.Domain/"]
-COPY ["Raport/src/Raport.Application/Raport.Application.csproj", "Raport/src/Raport.Application/"]
 COPY ["Library/NerdekalComRepository/NerdekalComRepository.csproj", "Library/NerdekalComRepository/"]
 RUN dotnet restore "Hotel/src/Hotel.WebApi/Hotel.WebApi.csproj"
 COPY . .

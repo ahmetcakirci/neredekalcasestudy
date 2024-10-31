@@ -6,11 +6,11 @@ EXPOSE 8082
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Raport/src/Raport.WebApi/Raport.WebApi.csproj", "Raport/src/Raport.WebApi/"]
+COPY ["Raport/src/Report.WebApi/Report.WebApi.csproj", "Raport/src/Report.WebApi/"]
 RUN dotnet restore "Raport/src/Report.WebApi/Report.WebApi.csproj"
 COPY . .
 WORKDIR "/src/Raport/src/Raport.WebApi"
-RUN dotnet build "Raport.WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "Report.WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
