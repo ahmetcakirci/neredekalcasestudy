@@ -80,7 +80,7 @@
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     restart: unless-stopped
-
+    
 volumes:
   hotel-db:
   report-db:
@@ -88,8 +88,3 @@ volumes:
 networks:
   hotel-network:
   report-network:
-  report.workerservice:
-    image: report.workerservice
-    build:
-      context: .
-      dockerfile: Raport/src/Report.WorkerService/Dockerfile
